@@ -57,6 +57,7 @@ struct stInfo
 {
     int Age;
     bool HasDrivingLincense;
+    bool HasRecommendation;
 };
 
 stInfo ReadInfo()
@@ -69,12 +70,15 @@ stInfo ReadInfo()
     cout << "Do You Have A Driver Lincense 0 or 1 ?\n";
     cin >> Info.HasDrivingLincense;
 
+    cout << "Do You Have A Recommendation 0 or 1 ?\n";
+    cin >> Info.HasRecommendation;
+
     return Info;
 }
 
 bool IsAccepted(stInfo Info)
 {
-    return (Info.Age >= 21 && Info.HasDrivingLincense);
+    return ((Info.Age >= 21 && Info.HasDrivingLincense) || Info.HasRecommendation);
 }
 
 void PrintResult(stInfo Info)
@@ -96,5 +100,6 @@ int main()
     //PrintNumType(CheckNumberType(ReadNumber()));
 
     PrintResult(ReadInfo());
+
     return 0;
 }
